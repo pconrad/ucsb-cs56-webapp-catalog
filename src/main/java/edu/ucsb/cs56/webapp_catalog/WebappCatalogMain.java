@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.pconrad;
+package edu.ucsb.cs56.webapp_catalog;
 
 import static spark.Spark.port;
 
@@ -19,9 +19,9 @@ import static spark.Spark.post;
  *
  */
 
-public class SparkMustacheDemo02 {
+public class WebappCatalogMain {
 
-	public static final String CLASSNAME="SparkMustacheDemo02";
+	public static final String CLASSNAME="WebappCatalogMain";
 	
 	public static final Logger log = Logger.getLogger(CLASSNAME);
 
@@ -33,11 +33,11 @@ public class SparkMustacheDemo02 {
         map.put("name", "Sam");
 		
         // hello.mustache file is in resources/templates directory
-        get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
+        get("/", (rq, rs) -> new ModelAndView(map, "home.mustache"), new MustacheTemplateEngine());
 
-		get("/form/student", (rq, rs) -> new ModelAndView(map, "studentForm.mustache"), new MustacheTemplateEngine());
+		get("/list", (rq, rs) -> new ModelAndView(map, "list.mustache"), new MustacheTemplateEngine());
 
-		post("/add/student", (rq, rs) -> new ModelAndView(map, "addedStudent.mustache"), new MustacheTemplateEngine());
+		post("/update/mentors", (rq, rs) -> new ModelAndView(map, "updateMentors.mustache"), new MustacheTemplateEngine());
 		
 	}
 	
